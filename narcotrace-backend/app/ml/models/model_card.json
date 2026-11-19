@@ -1,0 +1,77 @@
+{
+ "name": "narcotrace-cnn",
+ "version": "0.2-synthetic-baseline",
+ "status": "SYNTHETIC BASELINE - not validated on real lab photos",
+ "classes": [
+  "blue",
+  "no_reaction",
+  "orange_brown",
+  "orange_red",
+  "partial",
+  "purple",
+  "purple_black",
+  "unreadable"
+ ],
+ "input": [
+  1,
+  96,
+  96,
+  3
+ ],
+ "input_range": "float32 RGB 0..255 of the CALIBRATED 96x96 image (normalisation is inside the model)",
+ "trained_on": "synthetic only, calibrated with the reference-card pipeline (app/ml/calibration.py)",
+ "test_accuracy_synthetic": 0.885,
+ "test_accuracy_synthetic_card_found": 0.925,
+ "test_accuracy_synthetic_raw_uncalibrated_baseline": 0.854,
+ "policy_eval_synthetic": {
+  "coverage": 0.353,
+  "correct_when_definite": 0.975
+ },
+ "per_class": {
+  "blue": {
+   "precision": 0.936,
+   "recall": 0.941,
+   "f1-score": 0.939
+  },
+  "no_reaction": {
+   "precision": 0.923,
+   "recall": 0.963,
+   "f1-score": 0.942
+  },
+  "orange_brown": {
+   "precision": 0.773,
+   "recall": 0.802,
+   "f1-score": 0.787
+  },
+  "orange_red": {
+   "precision": 0.825,
+   "recall": 0.807,
+   "f1-score": 0.816
+  },
+  "partial": {
+   "precision": 0.948,
+   "recall": 0.877,
+   "f1-score": 0.911
+  },
+  "purple": {
+   "precision": 0.913,
+   "recall": 0.957,
+   "f1-score": 0.935
+  },
+  "purple_black": {
+   "precision": 0.918,
+   "recall": 0.957,
+   "f1-score": 0.937
+  },
+  "unreadable": {
+   "precision": 0.843,
+   "recall": 0.775,
+   "f1-score": 0.808
+  }
+ },
+ "limitations": [
+  "Trained only on synthetic images with invented colour centres",
+  "Colour-time evolution, adulterants and real reagent chemistry are not modelled",
+  "Reports colour only; substance comes from the kit chart (kits.py), which must be verified against the manufacturer chart"
+ ]
+}

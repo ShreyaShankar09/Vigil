@@ -1,0 +1,18 @@
+seed: 7
+image_size: 96
+epochs: 12
+batch_size: 64
+augmentation_repeats: 1
+validation_card_accuracy_threshold: 0.0
+regression_accuracy_tolerance: 0.01
+baseline_accuracy_floor: 0.87
+checkpoint_every_epoch: true
+models:
+  - small_cnn
+  - mobilenetv3_small
+  - lab_nn
+mobilenet:
+  weights: imagenet
+  fine_tune_layers: 20
+lab_nn:
+  center_crop_fraction: 0.35

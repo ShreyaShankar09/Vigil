@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "vectors": [
+    {
+      "name": "custody-1",
+      "payload": {
+        "label": "Evidence Sealed",
+        "timestamp": "2026-01-01T00:00:00Z",
+        "actor": "Zo\u00eb \u00c5ngstr\u00f6m",
+        "location": "North Lab",
+        "gpsVerified": true
+      },
+      "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "10dc1949636343a4137b77a10a1348fe4d74c541d70a489727da8dcafa314b2b"
+    },
+    {
+      "name": "custody-2",
+      "payload": {
+        "label": "Laboratory Received",
+        "timestamp": "2026-01-01T00:01:00Z",
+        "actor": "\u674e\u5c0f\u9f8d",
+        "location": "Central Laboratory",
+        "gpsVerified": false
+      },
+      "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "e7f4dcd6d9489614daa2fdccd4fa2c6b75c75ef0c26548d2e4aebff72be75be0"
+    },
+    {
+      "name": "custody-3",
+      "payload": {
+        "label": "Analysis Completed",
+        "timestamp": "2026-01-01T00:02:00Z",
+        "actor": "\u0623\u0645\u0644",
+        "location": "Lab 4",
+        "gpsVerified": true
+      },
+      "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "476952c2e8fc3565a8444e718751e2c7697132419e3096523d6d8c3a85ee6af4"
+    },
+    {
+      "name": "custody-4",
+      "payload": {
+        "label": "Evidence Transferred",
+        "timestamp": "2026-01-01T00:03:00Z",
+        "actor": "\u042d\u043b\u0438\u043d\u0430",
+        "location": "Archive",
+        "gpsVerified": true
+      },
+      "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "e577375bf02bfd18b37c571aeb8c0adce0fb7cbfb03ebe277d9054784a1af19f"
+    },
+    {
+      "name": "custody-5",
+      "payload": {
+        "label": "Evidence Released",
+        "timestamp": "2026-01-01T00:04:00Z",
+        "actor": "Mar\u00eda Jos\u00e9",
+        "location": "Court Registry",
+        "gpsVerified": false
+      },
+      "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "82c23224a770578fac1e490e620d41931cf85837548a7c14b8a4a68f024665de"
+    }
+  ]
+}

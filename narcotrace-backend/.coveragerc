@@ -1,0 +1,15 @@
+[run]
+omit =
+    app/ml/*
+    app/seed.py
+    app/seed_e2e.py
+    app/e2e_tools.py
+    app/export_openapi.py
+
+[report]
+omit =
+    app/ml/*
+    app/seed.py
+    app/seed_e2e.py
+    app/e2e_tools.py
+    app/export_openapi.py

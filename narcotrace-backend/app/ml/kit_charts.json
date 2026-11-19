@@ -1,0 +1,67 @@
+{
+  "KIT-COC-04": {
+    "reagent": "Modified Scott (cobalt thiocyanate)",
+    "expected": {
+      "blue": "Suspected Cocaine"
+    },
+    "ambiguous": {},
+    "read_window_s": null,
+    "source_citation": "Legacy published presumptive-test baseline; manufacturer chart citation not recorded.",
+    "chart_verified": false,
+    "verified_by": null,
+    "verified_on": null
+  },
+  "KIT-OPI-01": {
+    "reagent": "Marquis",
+    "expected": {
+      "purple": "Suspected Heroin / Opiates"
+    },
+    "ambiguous": {
+      "purple_black": "Very dark purple/black can be MDMA/MDA or an opiate (e.g. codeine) on Marquis"
+    },
+    "read_window_s": 60,
+    "source_citation": "Legacy published presumptive-test baseline; manufacturer chart citation not recorded.",
+    "chart_verified": false,
+    "verified_by": null,
+    "verified_on": null
+  },
+  "KIT-MDMA-03": {
+    "reagent": "Marquis",
+    "expected": {
+      "purple_black": "Suspected MDMA / MDA"
+    },
+    "ambiguous": {
+      "purple": "Purple on Marquis can be an opiate or MDMA/MDA"
+    },
+    "read_window_s": 60,
+    "source_citation": "Legacy published presumptive-test baseline; manufacturer chart citation not recorded.",
+    "chart_verified": false,
+    "verified_by": null,
+    "verified_on": null
+  },
+  "KIT-THC-02": {
+    "reagent": "Duquenois-Levine",
+    "expected": {
+      "purple": "Suspected Cannabis (THC)"
+    },
+    "ambiguous": {},
+    "read_window_s": null,
+    "source_citation": "Legacy published presumptive-test baseline; manufacturer chart citation not recorded.",
+    "chart_verified": false,
+    "verified_by": null,
+    "verified_on": null
+  },
+  "KIT-METH-05": {
+    "reagent": "Marquis",
+    "expected": {
+      "orange_brown": "Suspected Amphetamine-type (methamphetamine / amphetamine)",
+      "orange_red": "Suspected Amphetamine-type (methamphetamine / amphetamine)"
+    },
+    "ambiguous": {},
+    "read_window_s": 60,
+    "source_citation": "Legacy published presumptive-test baseline; manufacturer chart citation not recorded.",
+    "chart_verified": false,
+    "verified_by": null,
+    "verified_on": null
+  }
+}

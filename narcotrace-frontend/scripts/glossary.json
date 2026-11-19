@@ -1,0 +1,30 @@
+{
+  "terms": {
+    "evidence": "Evidence",
+    "chainOfCustody": "Chain of custody",
+    "presumptiveTest": "Presumptive test",
+    "reagent": "Reagent",
+    "inconclusive": "Inconclusive",
+    "positive": "Positive",
+    "negative": "Negative",
+    "form6": "Form 6",
+    "referenceCard": "Reference card",
+    "calibration": "Calibration",
+    "sync": "Sync",
+    "officer": "Officer",
+    "laboratory": "Laboratory",
+    "ndps": "NDPS"
+  },
+  "doNotTranslate": [
+    "VIGIL",
+    "NARCOTRACE",
+    "NDPS",
+    "GPS",
+    "AI",
+    "SHA-256",
+    "DNA",
+    "THC",
+    "MDMA",
+    "FSL"
+  ]
+}
