@@ -1642,12 +1642,7 @@
           },
           "role": {
             "type": "string",
-            "enum": [
-              "field_officer",
-              "zonal_admin",
-              "lab",
-              "prosecutor"
-            ],
+            "const": "field_officer",
             "title": "Role",
             "default": "field_officer"
           },
