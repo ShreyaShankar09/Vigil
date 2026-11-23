@@ -112,7 +112,7 @@ class OfficerCreate(BaseModel):
 class OfficerRegister(BaseModel):
     officer_id: str = Field(min_length=1, max_length=20)
     name: str = Field(min_length=1, max_length=100)
-    role: Literal["field_officer", "zonal_admin", "lab", "prosecutor"] = "field_officer"
+    role: Literal["field_officer"] = "field_officer"
     language: Literal["en", "hi", "kn", "ta", "te", "ml", "mr", "bn", "gu", "pa", "or", "as", "ur"] = "en"
     zone: str = Field(default="Bengaluru", min_length=1, max_length=80)
     password: str

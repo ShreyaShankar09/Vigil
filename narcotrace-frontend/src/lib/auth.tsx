@@ -69,7 +69,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setInitialServerUnavailable(true)
       }
       const currentPath = location.pathname
-      if (currentPath !== '/login' && currentPath !== '/' && currentPath !== '/offline') {
+      if (currentPath !== '/login' && currentPath !== '/signup' && currentPath !== '/' && currentPath !== '/offline') {
         const reason = error instanceof AuthError ? '?reason=expired' : ''
         void navigate(`/login${reason}`, { replace: true })
       }

@@ -46,6 +46,19 @@
       },
       "retryCountdown": "Try again in {seconds} seconds."
     },
+    "signup": {
+      "title": "Register as a field officer",
+      "subtitle": "Create your account to access VIGIL field tools.",
+      "roleNote": "Self-registration is for field officers. A zonal administrator must create laboratory, administrator, and prosecutor accounts.",
+      "confirmPassword": "Confirm password",
+      "createAccount": "Create account",
+      "creatingAccount": "Creating account…",
+      "loginPrompt": "New to VIGIL?",
+      "alreadyHaveAccount": "Already registered?",
+      "link": "Sign up",
+      "signInLink": "Sign in",
+      "backToSignIn": "Back to sign in"
+    },
     "loading": "Checking your session…",
     "forbidden": {
       "title": "Access denied",
@@ -310,6 +323,7 @@
       "cameraFailed": "Could not start the camera. Use “Take photo” / upload instead.",
       "evidenceCaptured": "Evidence Captured",
       "analysisCompleted": "Automated Analysis Completed",
+      "analysisService": "Analysis service",
       "analysisLoading": "Finding the reference card, calibrating colour, reading the reaction…",
       "analysisFailed": "Analysis failed",
       "analysisNoResult": "No result",

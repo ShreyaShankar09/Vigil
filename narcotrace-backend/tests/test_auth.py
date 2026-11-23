@@ -418,7 +418,7 @@ def test_officer_registration_and_login(api_client):
         json={
             "officer_id": "OFF-REG-02",
             "name": "Short Pass",
-            "role": "lab",
+            "role": "field_officer",
             "zone": "Bengaluru",
             "language": "hi",
             "password": "short",
@@ -436,4 +436,24 @@ def test_officer_registration_and_login(api_client):
     assert login_payload["token_type"] == "bearer"
     assert login_payload["language"] == "kn"
     assert login_payload["must_change_password"] is False
+
+
+@pytest.mark.parametrize("role", ["zonal_admin", "lab", "prosecutor"])
+def test_public_registration_cannot_create_privileged_officers(api_client, role):
+    client, engine = api_client
+    response = client.post(
+        "/auth/register",
+        json={
+            "officer_id": f"OFF-REG-{role.upper()}",
+            "name": "Unprivileged Registration",
+            "role": role,
+            "zone": "Bengaluru",
+            "language": "en",
+            "password": "Secure-Password-2026",
+        },
+    )
+
+    assert response.status_code == 422
+    with Session(engine) as session:
+        assert session.get(Officer, f"OFF-REG-{role.upper()}") is None
 

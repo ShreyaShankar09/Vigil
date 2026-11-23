@@ -70,6 +70,7 @@ describe('sign-in localization and UX states', () => {
     expect(screen.getByLabelText(dictionaries[code]['login.officerId'])).toHaveAttribute('autocomplete', 'username')
     expect(screen.getByLabelText(dictionaries[code]['login.password'])).toHaveAttribute('autocomplete', 'current-password')
     expect(screen.getByRole('button', { name: dictionaries[code]['login.signIn'] })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: dictionaries[code]['signup.link'] })).toHaveAttribute('href', '/signup')
     expect(screen.getByRole('combobox', { name: dictionaries[code]['login.language'] })).toBeInTheDocument()
     expect(document.documentElement.lang).toBe(code)
     expect(document.documentElement.dir).toBe(code === 'ur' ? 'rtl' : 'ltr')

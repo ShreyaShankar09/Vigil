@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
-import { Navigate, useLocation, useNavigate } from 'react-router-dom'
-import { Eye, EyeOff, ScanFace } from 'lucide-react'
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
+import { Eye, EyeOff, ScanFace, ShieldCheck } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { LanguageSelector } from '@/components/ui/LanguageSelector'
 import { useAuth } from '@/lib/auth'
@@ -80,33 +80,51 @@ export default function Login() {
 
   return (
     <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-ink-900 px-4 py-16">
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <svg className="h-full w-full opacity-[0.06]" xmlns="http://www.w3.org/2000/svg">
-          {Array.from({ length: 14 }).map((_, index) => (
-            <circle key={index} cx={`${(index * 37) % 100}%`} cy={`${(index * 53) % 100}%`} r="70" fill="none" stroke="white" strokeWidth="1" />
-          ))}
-        </svg>
-        <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-evidence-500/5 to-transparent" />
-      </div>
-
       <div className="fixed end-4 top-4 z-20"><LanguageSelector /></div>
-      <div className="relative w-full max-w-sm">
-        <div className="mb-8 flex flex-col items-center text-center">
-          <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-line-700 bg-ink-700 text-evidence-400">
-            <ScanFace className="h-7 w-7" aria-hidden="true" />
+      <div className="grid w-full max-w-5xl overflow-hidden rounded-3xl border border-line-700 bg-ink-800 shadow-2xl shadow-black/30 md:grid-cols-[0.9fr_1.1fr]">
+        <section className="relative hidden min-h-[620px] flex-col justify-between overflow-hidden bg-gradient-to-br from-ink-700 via-ink-800 to-ink-900 p-10 md:flex">
+          <div className="pointer-events-none absolute -end-24 -top-20 h-80 w-80 rounded-full border border-signal-400/20" aria-hidden="true" />
+          <div className="pointer-events-none absolute -end-12 -top-8 h-56 w-56 rounded-full border border-signal-400/20" aria-hidden="true" />
+          <div className="relative flex items-center gap-4">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-evidence-500 text-white shadow-lg shadow-evidence-500/20">
+              <ScanFace className="h-8 w-8" aria-hidden="true" />
+            </div>
+            <div>
+              <h1 className="text-3xl font-bold tracking-[0.18em] text-mist-100">VIGIL</h1>
+              <p className="text-base text-mist-300">{t('login.subtitle')}</p>
+            </div>
           </div>
-          <h1 className="mt-4 text-2xl font-bold tracking-tight text-mist-100">VIGIL</h1>
-          <p className="mt-1 text-sm text-mist-500">{t('login.subtitle')}</p>
-        </div>
+          <div className="relative space-y-5">
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-line-600 bg-ink-700/80 text-signal-400">
+              <ShieldCheck className="h-9 w-9" aria-hidden="true" />
+            </div>
+            <p className="max-w-sm text-2xl font-semibold leading-relaxed text-mist-100">{t('login.secureLogin')}</p>
+          </div>
+          <p className="relative text-sm text-mist-500">{t('nav.projectTag')}</p>
+        </section>
 
-        <form
-          onSubmit={submit}
-          aria-busy={submitting || authState.status === 'loading'}
-          className="space-y-4 rounded-xl border border-line-800 bg-ink-800 p-5"
-        >
-          <h2 className="text-base font-semibold text-mist-100">{t('login.title')}</h2>
+        <section className="flex items-center px-5 py-10 sm:px-10 md:py-14">
+          <div className="mx-auto w-full max-w-md">
+            <div className="mb-8 flex items-center gap-3 md:hidden">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-evidence-500 text-white">
+                <ScanFace className="h-7 w-7" aria-hidden="true" />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold tracking-[0.16em] text-mist-100">VIGIL</h1>
+                <p className="text-sm text-mist-500">{t('login.subtitle')}</p>
+              </div>
+            </div>
+            <div className="mb-7">
+              <p className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-signal-400">{t('login.secureLogin')}</p>
+              <h2 className="text-3xl font-bold tracking-tight text-mist-100">{t('login.title')}</h2>
+            </div>
+            <form
+              onSubmit={submit}
+              aria-busy={submitting || authState.status === 'loading'}
+              className="space-y-5"
+            >
           <div>
-            <label htmlFor="officer-id" className="mb-1.5 block text-sm font-medium text-mist-300">{t('login.officerId')}</label>
+            <label htmlFor="officer-id" className="mb-2 block text-base font-semibold text-mist-200">{t('login.officerId')}</label>
             <input
               id="officer-id"
               name="username"
@@ -114,11 +132,11 @@ export default function Login() {
               required
               value={officerId}
               onChange={(event) => setOfficerId(event.target.value)}
-              className="h-12 w-full rounded-md border border-line-700 bg-ink-900 px-3 text-base text-mist-100 outline-none focus:border-signal-500 focus:ring-2 focus:ring-signal-500/30"
+              className="h-14 w-full rounded-xl border border-line-700 bg-ink-900 px-4 text-lg text-mist-100 outline-none transition focus:border-signal-500 focus:ring-2 focus:ring-signal-500/30"
             />
           </div>
           <div>
-            <label htmlFor="password" className="mb-1.5 block text-sm font-medium text-mist-300">{t('login.password')}</label>
+            <label htmlFor="password" className="mb-2 block text-base font-semibold text-mist-200">{t('login.password')}</label>
             <div className="relative">
               <input
                 id="password"
@@ -128,14 +146,14 @@ export default function Login() {
                 required
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
-                className="h-12 w-full rounded-md border border-line-700 bg-ink-900 px-3 pe-12 text-base text-mist-100 outline-none focus:border-signal-500 focus:ring-2 focus:ring-signal-500/30"
+                className="h-14 w-full rounded-xl border border-line-700 bg-ink-900 px-4 pe-14 text-lg text-mist-100 outline-none transition focus:border-signal-500 focus:ring-2 focus:ring-signal-500/30"
               />
               <button
                 type="button"
                 aria-label={showPassword ? t('login.hidePassword') : t('login.showPassword')}
                 aria-pressed={showPassword}
                 onClick={() => setShowPassword((visible) => !visible)}
-                className="absolute inset-y-0 end-0 flex w-12 items-center justify-center text-mist-400 hover:text-mist-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-signal-500"
+                className="absolute inset-y-0 end-0 flex w-14 items-center justify-center text-mist-400 hover:text-mist-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-signal-500"
               >
                 {showPassword
                   ? <EyeOff className="h-5 w-5" aria-hidden="true" />
@@ -147,7 +165,7 @@ export default function Login() {
           <div
             ref={errorRef}
             tabIndex={-1}
-            className="min-h-[4.5rem] rounded-md pt-2 text-sm text-caution-300 outline-none"
+            className="min-h-[4.5rem] rounded-md pt-2 text-base text-caution-300 outline-none"
           >
             <p aria-live="assertive" aria-atomic="true">{errorText}</p>
             {visibleError === 'lockedOut' && (
@@ -167,7 +185,15 @@ export default function Login() {
                 ? t('auth.loading')
                 : t('login.signIn')}
           </Button>
-        </form>
+              <p className="border-t border-line-800 pt-5 text-center text-base text-mist-300">
+            {t('signup.loginPrompt')}{' '}
+                <Link to="/signup" className="font-semibold text-signal-400 underline-offset-4 hover:text-signal-300 hover:underline">
+                  {t('signup.link')}
+                </Link>
+              </p>
+            </form>
+          </div>
+        </section>
       </div>
     </main>
   )

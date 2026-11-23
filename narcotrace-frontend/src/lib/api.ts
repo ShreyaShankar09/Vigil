@@ -219,6 +219,27 @@ export async function apiLogin(officerId: string, password: string): Promise<Aut
   return toAuthUser(payload)
 }
 
+export interface OfficerRegistration {
+  officer_id: string
+  name: string
+  zone: string
+  language: AuthLanguage
+  password: string
+}
+
+export async function apiRegisterOfficer(officer: OfficerRegistration): Promise<void> {
+  const response = await send('/auth/register', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ...officer, role: 'field_officer' }),
+  }, null)
+  if (!response.ok) throw await responseError(response)
+  const payload: unknown = await response.json()
+  if (!isOfficerResponse(payload) || payload.role !== 'field_officer') {
+    throw new ApiError('Invalid registration response', 502)
+  }
+}
+
 export async function apiMe(): Promise<AuthUser> {
   const response = await request('/me')
   const payload: unknown = await response.json()

@@ -93,6 +93,7 @@ void i18next
 
 const LEGACY_PREFIXES: Record<string, string> = {
   login: 'auth.login',
+  signup: 'auth.signup',
   f6: 'form6',
   capture: 'test.capture',
   released: 'evidence.released',

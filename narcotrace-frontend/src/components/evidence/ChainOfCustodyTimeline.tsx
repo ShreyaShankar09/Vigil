@@ -21,7 +21,7 @@ export function ChainOfCustodyTimeline({ events }: { events: CustodyEvent[] }) {
           </p>
           <p className="mt-0.5 text-sm font-semibold text-mist-100">{knownLabels[event.label] ? t(knownLabels[event.label]) : event.label}</p>
           <p className="text-xs text-mist-500">
-            {event.actor} · {event.location}
+            {event.actor === 'Analysis service' ? t('test.capture.analysisService') : event.actor} · {event.location}
           </p>
           <div className="mt-1.5 flex flex-wrap gap-3 text-xs">
             <span className={event.gpsVerified ? 'flex items-center gap-1 text-verified-400' : 'flex items-center gap-1 text-mist-700'}>

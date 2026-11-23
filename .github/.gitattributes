@@ -1,0 +1,18 @@
+# Normalise line endings to LF so make, shell scripts and Docker work on Linux/CI
+* text=auto eol=lf
+
+# Binary files: never touch line endings or try to diff
+*.tflite binary
+*.keras binary
+*.npy binary
+*.woff2 binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.pdf binary
+*.zip binary
+
+# Lockfiles and generated JSON: keep diffs quiet
+package-lock.json -diff
+docs/openapi.json linguist-generated=true

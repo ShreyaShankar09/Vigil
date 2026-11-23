@@ -11,6 +11,7 @@ import { NetworkToastBridge } from '@/components/pwa/NetworkToastBridge'
 import { UpdatePrompt } from '@/components/pwa/UpdatePrompt'
 
 const Login = lazy(() => import('@/pages/Login'))
+const Signup = lazy(() => import('@/pages/Signup'))
 const Dashboard = lazy(() => import('@/pages/Dashboard'))
 const NewTest = lazy(() => import('@/pages/NewTest'))
 const EvidenceDetails = lazy(() => import('@/pages/EvidenceDetails'))
@@ -46,6 +47,7 @@ export default function App() {
                 <Suspense fallback={<RouteLoading />}>
                   <Routes>
                     <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<Signup />} />
                     <Route path="/offline" element={<Offline />} />
                     <Route path="/" element={<Navigate to="/login" replace />} />
 
